@@ -1,0 +1,30 @@
+.button-container {
+  min-width: 165px;
+  width: auto;
+  height: 50px;
+  letter-spacing: 0.5px;
+  line-height: 50px;
+  padding: 0 35px 0 35px;
+  font-size: 15px;
+  background-color: lightskyblue;
+  color: aliceblue;
+  text-transform: uppercase;
+  font-family: inherit;
+  font-weight: bolder;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  border-radius: 0.5rem;
+  -webkit-border-radius: 0.5rem;
+  -moz-border-radius: 0.5rem;
+  -ms-border-radius: 0.5rem;
+  -o-border-radius: 0.5rem;
+}
+
+.button-container:hover {
+  opacity: 0.75;
+  border: 1px solid lightskyblue;
+  border-bottom: 4px solid cornflowerblue;
+  color: cornflowerblue;
+}

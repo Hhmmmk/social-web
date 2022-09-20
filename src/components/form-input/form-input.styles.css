@@ -1,0 +1,48 @@
+.group {
+  position: relative;
+  margin: 24px 0;
+}
+
+.form-input {
+  background: none;
+  background-color: azure;
+  color: #666666;
+  font-size: 1.375rem;
+  padding: 10px 10px 10px 10px;
+  display: block;
+  width: 100%;
+  border: 1px solid lightblue;
+  border-radius: 0.25rem;
+  -webkit-border-radius: 0.25rem;
+  -moz-border-radius: 0.25rem;
+  -ms-border-radius: 0.25rem;
+  -o-border-radius: 0.25rem;
+  border-bottom: 4px solid lightblue;
+}
+
+.form-input:focus {
+  outline: none;
+}
+
+.form-input-label {
+  color: #666666;
+  font-size: 1rem;
+  font-weight: 400;
+  position: absolute;
+  pointer-events: none;
+  left: 15px;
+  top: 12.5px;
+  transition: 300ms ease all;
+  -webkit-transition: 300ms ease all;
+  -moz-transition: 300ms ease all;
+  -ms-transition: 300ms ease all;
+  -o-transition: 300ms ease all;
+}
+
+.form-input:focus ~ .form-input-label,
+.form-input:valid ~ .form-input-label {
+  top: -1.5rem;
+  left: 0.5rem;
+  font-size: 0.85rem;
+  color: inherit;
+}

@@ -1,5 +1,5 @@
 .data-list-container {
-  padding: 1.5rem;
+  padding: 2rem;
   text-align: center;
 }
 
@@ -8,7 +8,7 @@
   grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
   gap: 1rem;
   width: 100%;
-  padding: 2rem;
+  padding: 1rem 2rem;
 }
 
 @media screen and (min-width: 1495px) {

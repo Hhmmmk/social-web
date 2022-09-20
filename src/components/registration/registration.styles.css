@@ -1,5 +1,5 @@
 .registration {
-  padding: 1.5rem;
+  padding: 2rem 4rem;
   background-color: whitesmoke;
   border-radius: 0.5rem;
   -webkit-border-radius: 0.5rem;
@@ -7,4 +7,16 @@
   -ms-border-radius: 0.5rem;
   -o-border-radius: 0.5rem;
   text-align: center;
+}
+
+.registration-input {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.add {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
