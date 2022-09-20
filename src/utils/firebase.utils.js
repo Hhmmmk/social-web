@@ -27,10 +27,12 @@ export const createUserDocument = async (user) => {
     const uId = user.id;
     const displayName = user.userName;
     const createdAt = new Date();
+    const friendsList = user.friendsList;
 
     try {
       await setDoc(userDocRef, {
         displayName,
+        friendsList,
         createdAt,
         uId,
       });

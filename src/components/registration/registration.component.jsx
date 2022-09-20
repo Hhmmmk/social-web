@@ -1,19 +1,26 @@
-import { useState } from 'react';
-import { createUserDocument } from '../../utils/firebase.utils';
+import { useState, useContext } from 'react';
+// import { createUserDocument } from '../../utils/firebase.utils';
 
 import FormInput from '../form-input/form-input.component';
 import Button from '../button/button.component';
 
+import { UserContext } from '../../contexts/user.context';
+
 import './registration.styles.css';
 
 const defaultRegisterField = {
-  userName: '',
   id: '',
+  userName: '',
+  friendsList: [],
 };
+
+const localCollection = [];
 
 const Registration = () => {
   const [registerField, setRegisterField] = useState(defaultRegisterField);
   const { userName } = registerField;
+
+  const { setUserCollection, userCollection } = useContext(UserContext);
 
   const handleChange = (event) => {
     let uId = 'id' + Math.random().toString(16).slice(2);
@@ -22,6 +29,7 @@ const Registration = () => {
       return {
         userName: event.target.value,
         id: uId,
+        friendsList: [],
       };
     });
   };
@@ -32,14 +40,19 @@ const Registration = () => {
     });
   };
 
-  const handleSubmit = async (event) => {
+  const handleSubmit = (event) => {
     event.preventDefault();
-    await createUserDocument(registerField);
-    console.log(registerField);
+    // await createUserDocument(registerField);
+    localCollection.push(registerField);
+    setUserCollection(() => {
+      return localCollection;
+    });
+    console.log('from local', localCollection);
+
     resetRegistrationField();
   };
 
-  console.log(registerField);
+  console.log('from context', userCollection);
   return (
     <div className='registration'>
       <h2>Register User</h2>
