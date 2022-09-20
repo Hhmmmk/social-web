@@ -45,14 +45,13 @@ const Registration = () => {
     // await createUserDocument(registerField);
     localCollection.push(registerField);
     setUserCollection(() => {
-      return localCollection;
+      return [...localCollection];
     });
-    console.log('from local', localCollection);
 
     resetRegistrationField();
   };
 
-  console.log('from context', userCollection);
+  console.log('context from registration', userCollection);
   return (
     <div className='registration'>
       <h2>Register User</h2>
