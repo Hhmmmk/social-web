@@ -6,4 +6,14 @@
 
 body {
   background: linear-gradient(to right, #5b86e5, #36d1dc);
+  height: 100vh;
+  width: 100vw;
+}
+
+h2 {
+  margin-bottom: 1rem;
+}
+
+button {
+  cursor: pointer;
 }

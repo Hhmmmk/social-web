@@ -1,0 +1,24 @@
+.slot-container {
+  width: 100%;
+  padding: 0.75rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-color: lightblue;
+  border-radius: 0.25rem;
+  -webkit-border-radius: 0.25rem;
+  -moz-border-radius: 0.25rem;
+  -ms-border-radius: 0.25rem;
+  -o-border-radius: 0.25rem;
+}
+
+.user-name {
+  width: 100%;
+}
+
+.icon {
+  padding: 0.25rem;
+  width: 2.5rem;
+  cursor: pointer;
+}

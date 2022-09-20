@@ -1,0 +1,19 @@
+.actions-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
+  gap: 1rem;
+  width: 100%;
+  padding: 2rem;
+}
+
+@media screen and (min-width: 1445px) {
+  .actions-container {
+    grid-template-columns: repeat(auto-fill, minmax(650px, 1fr));
+  }
+}
+
+@media screen and (min-width: 1980px) {
+  .actions-container {
+    grid-template-columns: repeat(auto-fill, minmax(800px, 1fr));
+  }
+}

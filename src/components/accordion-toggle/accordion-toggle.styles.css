@@ -1,0 +1,33 @@
+.accordion-toggle-container {
+  display: flex;
+  align-self: flex-start;
+  margin-right: auto;
+  width: max-content;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid lightcyan;
+  border-radius: 0.5rem;
+  -webkit-border-radius: 0.5rem;
+  -moz-border-radius: 0.5rem;
+  -ms-border-radius: 0.5rem;
+  -o-border-radius: 0.5rem;
+}
+
+.arrow {
+  background-color: lightcyan;
+  border-radius: 0.25rem 0 0 0.25rem;
+  border-right: 2px solid lightblue;
+  -webkit-border-radius: 0.25rem 0 0 0.25rem;
+  -moz-border-radius: 0.25rem 0 0 0.25rem;
+  -ms-border-radius: 0.25rem 0 0 0.25rem;
+  -o-border-radius: 0.25rem 0 0 0.25rem;
+}
+
+.friends {
+  background-color: aliceblue;
+  border-radius: 0 0.25rem 0.25rem 0;
+  -webkit-border-radius: 0 0.25rem 0.25rem 0;
+  -moz-border-radius: 0 0.25rem 0.25rem 0;
+  -ms-border-radius: 0 0.25rem 0.25rem 0;
+  -o-border-radius: 0 0.25rem 0.25rem 0;
+}
