@@ -11,7 +11,6 @@ import './registration.styles.css';
 const defaultRegisterField = {
   id: '',
   userName: '',
-  friendsList: [],
 };
 
 const localCollection = [];
@@ -29,7 +28,6 @@ const Registration = () => {
       return {
         userName: event.target.value,
         id: uId,
-        friendsList: [],
       };
     });
   };

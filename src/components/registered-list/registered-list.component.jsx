@@ -4,13 +4,13 @@ import { UserContext } from '../../contexts/user.context';
 
 import UserSlot from '../user-slot/user-slot.component';
 
-import './data-list.styles.css';
+import './registered-list.styles.css';
 
-const DataList = () => {
+const RegisteredList = () => {
   const { userCollection } = useContext(UserContext);
 
   return (
-    <div className='data-list-container'>
+    <div className='registered-users-container'>
       <h2>Registered Users</h2>
       <div className='user-slots'>
         {userCollection.map((user) => {
@@ -21,4 +21,4 @@ const DataList = () => {
   );
 };
 
-export default DataList;
+export default RegisteredList;

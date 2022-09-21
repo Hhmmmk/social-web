@@ -1,5 +1,6 @@
 import OutputViewer from '../output-viewer/output-viewer.component';
-import DataList from '../data-list/data-list.component';
+import RegisteredList from '../registered-list/registered-list.component';
+import ConnectionsList from '../connections-list/connections-list.component';
 
 import './data-container.styles.css';
 
@@ -8,7 +9,10 @@ const DataContainer = () => {
     <div className='container'>
       <div className='data-container'>
         <OutputViewer />
-        <DataList />
+        <div className='data-list-container'>
+          <RegisteredList />
+          <ConnectionsList />
+        </div>
       </div>
     </div>
   );

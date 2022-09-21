@@ -1,14 +1,14 @@
-.data-list-container {
-  padding: 2rem;
-  text-align: center;
-}
-
 .user-slots {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
+  display: flex;
+  flex-direction: column;
   gap: 1rem;
   width: 100%;
-  padding: 1rem 2rem;
+  padding: 0.75rem 2rem;
+  padding-top: 1rem;
+}
+
+.registered-users-container {
+  padding-top: 1rem;
 }
 
 @media screen and (min-width: 1495px) {
