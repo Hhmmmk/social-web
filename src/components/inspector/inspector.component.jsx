@@ -20,10 +20,14 @@ const Inspector = () => {
   const { firstUser, secondUser } = selection;
 
   const { userCollection } = useContext(UserContext);
-  const { setConnections } = useContext(ConnectionsContext);
+  const { connections, setConnections } = useContext(ConnectionsContext);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
+
+    if (userCollection.length <= 1) {
+      console.log('You need two registered users to set connections'); //TODO: Convert this to be shown on Output
+    }
 
     setSelection({ ...selection, [name]: value });
   };
@@ -50,16 +54,24 @@ const Inspector = () => {
     if (validFirstUser.length > 0 && validSecondUser.length > 0) {
       validUsers.push(firstUser.toLowerCase());
       validUsers.push(secondUser.toLowerCase());
+
+      if (validUsers.length > 0) {
+        localConnection.push(validUsers);
+      }
+
+      setConnections(() => {
+        return [...localConnection];
+      });
+
+      console.log('Users are Valid'); //TODO: Convert this to be shown on Output
+    } else {
+      console.log('Entered user/s does not exist.'); // TODO: Convert this to be shown on output
     }
-
-    localConnection.push(validUsers);
-
-    setConnections(() => {
-      return [...localConnection];
-    });
 
     resetSelectionField();
   };
+
+  console.log(connections);
 
   return (
     <div className='view-relationship'>

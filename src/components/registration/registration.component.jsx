@@ -48,6 +48,8 @@ const Registration = () => {
       return [...localCollection];
     });
 
+    console.log('User registered successfully.'); //TODO: Convert this to be shown on Output
+
     resetRegistrationField();
   };
 
