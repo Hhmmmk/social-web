@@ -1,9 +1,11 @@
 import './button.styles.css';
 
-const Button = ({ children, buttonType, ...otherProps }) => {
+const Button = ({ onClickHandler, children, buttonType, ...otherProps }) => {
   return (
     <div>
-      <button className='button-container'>{children}</button>
+      <button onClick={onClickHandler} className='button-container'>
+        {children}
+      </button>
     </div>
   );
 };

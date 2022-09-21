@@ -63,7 +63,7 @@ const Inspector = () => {
         return [...localConnection];
       });
 
-      console.log('Users are Valid'); //TODO: Convert this to be shown on Output
+      console.log('Success!'); //TODO: Convert this to be shown on Output
     } else {
       console.log('Entered user/s does not exist.'); // TODO: Convert this to be shown on output
     }
@@ -71,8 +71,35 @@ const Inspector = () => {
     resetSelectionField();
   };
 
-  console.log(connections);
+  const handleClick = (event) => {
+    event.preventDefault();
+    console.log('click');
 
+    if (firstUser === '' || secondUser === '') {
+      console.log('Please enter username/s to see the connection.');
+    }
+
+    const validUsers2 = [];
+
+    const validFirstUser2 = userCollection.filter((user) => {
+      return user.userName.toLowerCase() === firstUser.toLowerCase();
+    });
+
+    const validSecondUser2 = userCollection.filter((user) => {
+      return user.userName.toLowerCase() === secondUser.toLowerCase();
+    });
+
+    if (validFirstUser2.length > 0 && validSecondUser2.length > 0) {
+      validUsers2.push(firstUser.toLowerCase());
+      validUsers2.push(secondUser.toLowerCase());
+    } else {
+      console.log('Entered user/s does not exist.'); // TODO: Convert this to be shown on output
+    }
+
+    console.log('VALID USERS', validUsers2);
+  };
+
+  console.log('CONNECTIONS', connections);
   return (
     <div className='view-relationship'>
       <h2>View Relationships</h2>
@@ -97,7 +124,9 @@ const Inspector = () => {
         </div>
         <div className='submit'>
           <Button>Set as Friends</Button>
-          <Button type='button'>See Connection</Button>
+          <Button onClickHandler={handleClick} type='button'>
+            See Connection
+          </Button>
         </div>
       </form>
     </div>
