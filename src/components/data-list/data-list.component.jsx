@@ -7,10 +7,7 @@ import UserSlot from '../user-slot/user-slot.component';
 import './data-list.styles.css';
 
 const DataList = () => {
-  console.log('hit');
   const { userCollection } = useContext(UserContext);
-
-  console.log('context from datalist', userCollection);
 
   return (
     <div className='data-list-container'>

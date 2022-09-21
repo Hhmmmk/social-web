@@ -1,7 +1,7 @@
 import edit from '../../assets/icons/edit-icon.png';
-import hoveredEdit from '../../assets/icons/edit_orange-icon.png';
+// import hoveredEdit from '../../assets/icons/edit_orange-icon.png';
 import deleteIcon from '../../assets/icons/delete-icon.png';
-import hoveredDeleteIcon from '../../assets/icons/delete_red-icon.png';
+// import hoveredDeleteIcon from '../../assets/icons/delete_red-icon.png';
 
 import './utility-buttons.styles.css';
 

@@ -8,6 +8,7 @@ body {
   background: linear-gradient(to right, #5b86e5, #36d1dc);
   height: 100vh;
   width: 100vw;
+  color: #696969;
 }
 
 h2 {

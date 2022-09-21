@@ -51,7 +51,8 @@ const Registration = () => {
     resetRegistrationField();
   };
 
-  console.log('context from registration', userCollection);
+  console.log(userCollection);
+
   return (
     <div className='registration'>
       <h2>Register User</h2>

@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 
 import App from './App';
 import { UserProvider } from './contexts/user.context';
+import { ConnectionsProvider } from './contexts/connections.context';
 
 import './index.css';
 import reportWebVitals from './reportWebVitals';
@@ -11,7 +12,9 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <UserProvider>
-      <App />
+      <ConnectionsProvider>
+        <App />
+      </ConnectionsProvider>
     </UserProvider>
   </React.StrictMode>
 );
