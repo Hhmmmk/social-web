@@ -148,20 +148,63 @@ const Inspector = () => {
 
     const pathsArray = [];
 
+    const path = [];
+
+    const tempArray = [];
+    const lastIndex = tempArray.length - 1;
+
     const getFriend = () => {
-      const path = [];
-      const addFriend = (dirFriend, conIndex) => {
-        relevantConnections.forEach((connection) => {
-          if (connection[conIndex] === dirFriend) {
-            path.push(connection);
+      const addFriend = (dirFriend) => {
+        // relevantConnections.forEach((connection) => {
+        //   if (connection[0] === dirFriend && connection[1] === validUsers[1])
+
+        //     path.push(connection);
+        //   } else if (connection[0] === dirFriend && connection[1]) {
+        //     tempArray.push(connection);
+        //   }
+        // });
+
+        relevantConnections.forEach((connection, i) => {
+          if (connection[0] === dirFriend && connection[1] === validUsers[1]) {
+            path.push(relevantConnections.splice(i, 1));
+          } else if (connection[0] === dirFriend && connection[1]) {
+            tempArray.push(relevantConnections.splice(i, 1));
           }
         });
+
+        console.log('newRElevant connections', relevantConnections);
       };
 
       directFriends.forEach((friend) => {
-        addFriend(friend, 0);
+        addFriend(friend);
+
+        tempArray.forEach((innerArray) => {
+          relevantConnections.forEach((connection) => {
+            // console.log('tempForEach');
+            // console.log(relevantConnections);
+            tempArray.forEach((connect) => {
+              // console.log('hit connect');
+              // console.log('connection0', connection[0]);
+              // console.log('connect', connect[0][1]);
+              if (connection[0] === connect[0][1]) {
+                // console.log('hit');
+
+                tempArray[0][0].push(connection[1]);
+              }
+            });
+          });
+        });
+        const newTempArray = tempArray.flat();
+
+        newTempArray.forEach((innerArray, i) => {
+          if (innerArray[innerArray.length - 1] === validUsers[1]) {
+            path.push(newTempArray.splice(i, 1));
+            console.log('newTempArray', newTempArray);
+          }
+        });
       });
 
+      console.log('tempArray', tempArray);
       console.log('path', path);
     };
 
