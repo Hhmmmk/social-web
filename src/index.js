@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom/client';
 import App from './App';
 import { UserProvider } from './contexts/user.context';
 import { ConnectionsProvider } from './contexts/connections.context';
+import { OutputProvider } from './contexts/output.context';
 
 import './index.css';
 import reportWebVitals from './reportWebVitals';
@@ -13,7 +14,9 @@ root.render(
   <React.StrictMode>
     <UserProvider>
       <ConnectionsProvider>
-        <App />
+        <OutputProvider>
+          <App />
+        </OutputProvider>
       </ConnectionsProvider>
     </UserProvider>
   </React.StrictMode>

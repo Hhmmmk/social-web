@@ -51,8 +51,6 @@ const Registration = () => {
     resetRegistrationField();
   };
 
-  console.log(userCollection);
-
   return (
     <div className='registration'>
       <h2>Register User</h2>

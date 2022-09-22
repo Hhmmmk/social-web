@@ -2,6 +2,7 @@ import { useState, useContext } from 'react';
 
 import { UserContext } from '../../contexts/user.context';
 import { ConnectionsContext } from '../../contexts/connections.context';
+import { OutputContext } from '../../contexts/output.context';
 
 import FormInput from '../form-input/form-input.component';
 import Button from '../button/button.component';
@@ -15,12 +16,15 @@ const defaultSelection = {
 
 const localConnection = [];
 
+const pathsArray = [];
+
 const Inspector = () => {
   const [selection, setSelection] = useState(defaultSelection);
   const { firstUser, secondUser } = selection;
 
   const { userCollection } = useContext(UserContext);
   const { connections, setConnections } = useContext(ConnectionsContext);
+  const { output, setOutput } = useContext(OutputContext);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -96,8 +100,6 @@ const Inspector = () => {
       console.log('Entered user/s does not exist.'); // TODO: Convert this to be shown on output
     }
 
-    console.log('VALID USERS', validUsers);
-
     //getting direct friends of firsUser
     const filteredConnections = connections
       .filter((connection) => {
@@ -112,9 +114,6 @@ const Inspector = () => {
       return user !== validUsers[0];
     });
 
-    //how many paths are there to get to the secondUser entered
-    const friendshipPaths = directFriends.length;
-
     //filter out direct friendship of the first user to their direct friends
     const relevantConnections = connections.filter((connection) => {
       return (
@@ -122,96 +121,67 @@ const Inspector = () => {
       );
     });
 
-    console.log('relevantConnections', relevantConnections);
-    console.log('paths to friendship', friendshipPaths);
-    console.log('directFriends', directFriends);
-    console.log('filteredConnections', filteredConnections);
-
-    // const pathsArray = directFriends.map((friend) => {
-    //   const path = relevantConnections.reduce((acc, connection) => {
-    //     const tempArray = [];
-
-    //     if (connection[0] === friend) {
-    //       tempArray.push(connection);
-    //     }
-
-    //     // const f = connection.filter((user) => {
-    //     //   return user !== friend;
-    //     // });
-
-    //     // tempArray.push(f);
-
-    //     return tempArray;
-    //   }, []);
-    //   return path;
-    // });
-
-    const pathsArray = [];
-
-    const path = [];
-
-    const tempArray = [];
-    const lastIndex = tempArray.length - 1;
+    let paths = [];
+    let tempArray = [];
 
     const getFriend = () => {
       const addFriend = (dirFriend) => {
-        // relevantConnections.forEach((connection) => {
-        //   if (connection[0] === dirFriend && connection[1] === validUsers[1])
-
-        //     path.push(connection);
-        //   } else if (connection[0] === dirFriend && connection[1]) {
-        //     tempArray.push(connection);
-        //   }
-        // });
-
         relevantConnections.forEach((connection, i) => {
           if (connection[0] === dirFriend && connection[1] === validUsers[1]) {
-            path.push(relevantConnections.splice(i, 1));
+            paths.push(relevantConnections.splice(i, 1));
           } else if (connection[0] === dirFriend && connection[1]) {
             tempArray.push(relevantConnections.splice(i, 1));
           }
         });
-
-        console.log('newRElevant connections', relevantConnections);
       };
 
       directFriends.forEach((friend) => {
         addFriend(friend);
 
-        tempArray.forEach((innerArray) => {
+        tempArray.forEach(() => {
           relevantConnections.forEach((connection) => {
-            // console.log('tempForEach');
-            // console.log(relevantConnections);
             tempArray.forEach((connect) => {
-              // console.log('hit connect');
-              // console.log('connection0', connection[0]);
-              // console.log('connect', connect[0][1]);
               if (connection[0] === connect[0][1]) {
-                // console.log('hit');
-
                 tempArray[0][0].push(connection[1]);
               }
             });
           });
         });
-        const newTempArray = tempArray.flat();
 
-        newTempArray.forEach((innerArray, i) => {
+        tempArray = tempArray.flat();
+
+        tempArray.forEach((innerArray, i) => {
           if (innerArray[innerArray.length - 1] === validUsers[1]) {
-            path.push(newTempArray.splice(i, 1));
-            console.log('newTempArray', newTempArray);
+            paths.push(tempArray.splice(i, 1));
+            console.log('newTempArray', tempArray);
           }
         });
       });
 
+      paths = paths.flat();
+
+      paths.forEach((path) => {
+        path.unshift(validUsers[0]);
+        pathsArray.push(path);
+      });
+
       console.log('tempArray', tempArray);
-      console.log('path', path);
+      console.log('FinalPaths', paths);
     };
 
     getFriend();
+
+    setOutput(() => {
+      return [...pathsArray];
+    });
+
+    console.log('pathsArray', pathsArray);
+
+    resetSelectionField();
   };
 
-  console.log('CONNECTIONS', connections);
+  console.log('output', output);
+
   return (
     <div className='view-relationship'>
       <h2>View Relationships</h2>
