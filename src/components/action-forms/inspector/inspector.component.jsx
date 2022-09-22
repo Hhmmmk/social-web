@@ -202,7 +202,7 @@ const Inspector = () => {
 
   return (
     <div className='view-relationship'>
-      <h2>View Relationships</h2>
+      <h2>View/Edit Connections</h2>
       <form onSubmit={handleSubmit}>
         <div className='inputs'>
           <FormInput
