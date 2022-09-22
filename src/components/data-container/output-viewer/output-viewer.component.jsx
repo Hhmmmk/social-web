@@ -22,8 +22,6 @@ const OutputViewer = () => {
     return arr.join(' ').toUpperCase();
   });
 
-  console.log('outputArray', outputArray);
-
   return (
     <div className='output-viewer'>
       <div>
