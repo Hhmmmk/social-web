@@ -2,7 +2,7 @@ import { useContext } from 'react';
 
 import { UserContext } from '../../contexts/user.context';
 
-import UserSlot from '../user-slot/user-slot.component';
+import UserSlot from './user-slot/user-slot.component';
 
 import './registered-list.styles.css';
 

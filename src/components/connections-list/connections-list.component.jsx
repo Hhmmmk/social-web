@@ -2,7 +2,7 @@ import { useContext } from 'react';
 
 import { ConnectionsContext } from '../../contexts/connections.context';
 
-import ConnectionSlot from '../connection-slot/connection-slot.component';
+import ConnectionSlot from './connection-slot/connection-slot.component';
 
 import './connections-list.styles.css';
 

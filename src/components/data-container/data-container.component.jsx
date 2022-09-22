@@ -1,4 +1,4 @@
-import OutputViewer from '../output-viewer/output-viewer.component';
+import OutputViewer from './output-viewer/output-viewer.component';
 import RegisteredList from '../registered-list/registered-list.component';
 import ConnectionsList from '../connections-list/connections-list.component';
 

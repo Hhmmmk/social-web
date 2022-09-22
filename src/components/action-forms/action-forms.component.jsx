@@ -1,5 +1,5 @@
-import Registration from '../registration/registration.component';
-import Inspector from '../inspector/inspector.component';
+import Registration from './registration/registration.component';
+import Inspector from './inspector/inspector.component';
 
 import './action-forms.styles.css';
 

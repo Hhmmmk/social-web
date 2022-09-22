@@ -1,10 +1,9 @@
 import { useState, useContext } from 'react';
-// import { createUserDocument } from '../../utils/firebase.utils';
 
-import FormInput from '../form-input/form-input.component';
-import Button from '../button/button.component';
+import FormInput from '../../form-input/form-input.component';
+import Button from '../../button/button.component';
 
-import { UserContext } from '../../contexts/user.context';
+import { UserContext } from '../../../contexts/user.context';
 
 import './registration.styles.css';
 
@@ -19,7 +18,7 @@ const Registration = () => {
   const [registerField, setRegisterField] = useState(defaultRegisterField);
   const { userName } = registerField;
 
-  const { setUserCollection, userCollection } = useContext(UserContext);
+  const { setUserCollection } = useContext(UserContext);
 
   const handleChange = (event) => {
     let uId = 'id' + Math.random().toString(16).slice(2);

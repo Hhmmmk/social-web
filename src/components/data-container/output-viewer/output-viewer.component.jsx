@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 
-import { OutputContext } from '../../contexts/output.context';
+import { OutputContext } from '../../../contexts/output.context';
 
 import './output-viewer.styles.css';
 
@@ -28,9 +28,6 @@ const OutputViewer = () => {
     <div className='output-viewer'>
       <div>
         <h2>Output Log</h2>
-        <div className='log'>
-          <span>Insert Log Here</span>
-        </div>
 
         <div className='results'>
           {outputArray.map((output, i) => {

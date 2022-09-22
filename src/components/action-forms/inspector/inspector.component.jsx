@@ -1,11 +1,11 @@
 import { useState, useContext } from 'react';
 
-import { UserContext } from '../../contexts/user.context';
-import { ConnectionsContext } from '../../contexts/connections.context';
-import { OutputContext } from '../../contexts/output.context';
+import { UserContext } from '../../../contexts/user.context';
+import { ConnectionsContext } from '../../../contexts/connections.context';
+import { OutputContext } from '../../../contexts/output.context';
 
-import FormInput from '../form-input/form-input.component';
-import Button from '../button/button.component';
+import FormInput from '../../form-input/form-input.component';
+import Button from '../../button/button.component';
 
 import './inspector.styles.css';
 
